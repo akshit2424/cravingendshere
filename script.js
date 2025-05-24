@@ -39,7 +39,7 @@ var pixelValue = parseFloat(computedHeight);
         console.log(textelement)
         c1.innerHTML = textelement;
         c2.innerHTML = "1";
-    const input = form.elements["Order"];
+        const input = form.elements["Order"];
       input.value += textelement + "+";
         
 }
