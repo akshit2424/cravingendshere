@@ -9,7 +9,7 @@ const custominput=document.querySelector(".custominput")
 const custombtn=document.querySelector(".custombtn")
 const menucard=document.querySelector(".menucard")
 const formsection=document.querySelector(".form")
-
+console.log(formsection.classList)
 document.querySelector(".menucard").addEventListener("click", () => {
   rightcard.classList.add("showmenu");
   leftcard.classList.add("hidemenu");
@@ -29,8 +29,11 @@ const pixelValue = parseFloat(computedHeight);
 })
 
 buttons.forEach((button) => {
+   
   button.addEventListener("click", (e) => {
+    formsection.classList.add("formanimate")
     if (e.target.tagName === "BUTTON") {
+      
       var found=false
       const li = e.target.closest("li");
       console.log(li);
@@ -60,5 +63,8 @@ buttons.forEach((button) => {
     }
   });
 });
+if(input.value!=""){
+  formsection.classList.add("formanimate")
+}
 
 
