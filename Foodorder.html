@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Romantic Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <style>
+    /* Fonts and layout */
+@import url("https://fonts.googleapis.com/css2?family=Calligraffitti&family=Cedarville+Cursive&family=Fredoka:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  background: #ff4b5c; /* Romantic Coral Red */
+  font-family: "Fredoka", sans-serif;
+  padding: 10px;
+  color: #333;
+  background-image: url(background.png);
+}
+
+section {
+  width: min(80vw, 400px);
+  margin: 0 auto;
+}
+
+/* Navbar */
+nav {
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  color: black; /* Cream White */
+ 
+}
+
+h1 {
+  margin: 5px;
+  font-size: 50px;
+}
+
+/* Menu card layout */
+.menu {
+  display: flex;
+}
+
+.menucard {
+  display: flex;
+  margin: 10px auto;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  overflow: hidden;
+  position: relative;
+  width: min(80vw, 400px);
+}
+
+/* Left Menu Intro */
+.leftpage,
+.rightpage {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: cursive;
+  transition: all 0.8s ease-in-out;
+}
+
+.leftpage {
+  background: linear-gradient(to right, #ffa4a2, #ffc3a0);
+  color: #fff;
+}
+
+.leftpage p {
+  font-size: 45px;
+  margin-bottom: 10px;
+}
+
+.leftpage p:nth-child(2) {
+  font-size: 70px;
+  font-weight: 1000;
+}
+
+.bottom {
+  transform: translateY(60px);
+  color: #ffe9f3;
+  font-style: italic;
+}
+
+/* Right menu content */
+.rightpage {
+  background: #fff8f0;
+  padding: 10px;
+  border-radius: 10px;
+  transform: translateX(100%);
+  pointer-events: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.rightpage.showmenu {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.leftpage.hidemenu {
+  opacity: 0;
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+.rightpage > h3 {
+  font-size: 40px;
+  color: #ff6f91;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 15px;
+}
+
+/* Menu Items */
+.food-items {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.food-items li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  margin: 8px 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.food-items span {
+  font-size: 18px;
+}
+
+.food-items button {
+  background-color: #ffca3a;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.food-items button:hover {
+  background-color: #ffc107;
+}
+
+/* Custom item */
+.customorder {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.custominput {
+  border: 2px solid #333;
+  border-radius: 6px;
+  padding: 5px;
+  width: 80%;
+  margin-bottom: 5px;
+}
+
+.custombtn {
+  background-color: #98ff98;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: none;
+}
+
+.custombtn:hover {
+  background-color: #90ee90;
+}
+
+/* Form Section */
+.form {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  transition: all 0.6s ease-in-out;
+}
+
+form {
+  border: 2px solid #333;
+  width: 80vw;
+  padding: 15px;
+  background: #fffdfd;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff4b5c;
+}
+
+table {
+  width: 100%;
+  margin: 15px 0;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  text-align: center;
+  padding: 6px;
+  border: 1px solid #ccc;
+}
+
+input[type="text"] {
+  margin: 10px 0;
+  padding: 6px;
+  width: 100%;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background-color: #ffd6a5;
+  color: #000;
+  border: none;
+  padding: 8px 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #ffb347;
+}
+.formanimate{
+  z-index: -1;
+  transform: translateY(-200%);
+}
+
+   </style>
+  </head>
+  <body>
+    <nav>
+      <h1>Solution for Your Craving</h1>
+    </nav>
+
+    <section class="menu">
+      <div class="menucard">
+        <div class="leftpage">
+          <p>Here is your Menu</p>
+          <p>Mam</p>
+          <p class="bottom ">tap to open</p>
+        </div>
+        <div class="rightpage">
+          <h3>MENU</h3>
+          <ul class="food-items">
+            <li><span>Pizza</span> <button>Add item</button></li>
+            <li><span>Momos</span> <button>Add item</button></li>
+            <li><span>Spring Roll</span> <button>Add item</button></li>
+            <li><span>Burger</span> <button>Add item</button></li>
+            <li><span>Masala Kebab</span> <button>Add item</button></li>
+          </ul>
+          <div class="customorder">
+            <p>beside menu u can add the item here</p>
+            
+            <input class="custominput" type="text" name="add">
+            <button class="custombtn">Add item</button>
+            
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="form">
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input
+          type="hidden"
+          name="access_key"
+          value="f98c44d5-326f-4626-a278-29c7201dab7f"
+        />
+        <label for="Order">Your Cart</label>
+        <table id="myTable">
+          <tr>
+            <th>item name</th>
+            <th>quantity</th>
+          </tr>
+          
+        </table>
+        <input type="text" name="Order" required />
+        <button type="submit">Send Order</button>
+      </form>
+    </section>
+
+  <script src="script.js"></script>
+  </body>
+</html>
